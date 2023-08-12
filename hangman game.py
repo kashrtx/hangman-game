@@ -25,6 +25,7 @@ random_word = r.get_random_word()
 # print(random_word)
 
 print("Welcome to Hangman. Let's play!")
+print("-------------------------------")
 # determine the difficulty of the random word based on its length.
 length = int(len(random_word))
 print(f"\nThis is {length} letter word!")
@@ -77,7 +78,7 @@ while game_running:
         # if the guessed letter is correct then replace the blur with the
         # correct letter
         if guess[0] in random_word:
-            indexes = find_indexes(random_word, guess)
+            indexes = find_indexes(random_word, guess[0])
             for i in indexes:
                 blurred_word[i] = guess[0]
             print(f"\n{string_word.join(blurred_word)}\n")
@@ -109,7 +110,7 @@ while game_running:
         if mistake == 6:
             print(head + left_arm + torso + right_arm + left_leg + right_leg)
             game_running = False
-            print('GAME OVER: YOU LOST!'
+            print('GAME OVER: YOU LOST! '
                   f'THE CORRECT WORD WAS --> {random_word}')
 
         # Checks if there is any more blurs left. If the word is complete it
